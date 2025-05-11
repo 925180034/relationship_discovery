@@ -1,7 +1,0 @@
-{
-    "name": "Musicians_unionable",
-    "source": "Musicians_unionable/musicians_unionable_source.csv",
-    "target": "Musicians_unionable/musicians_unionable_target.csv",
-    "mapping": "Musicians_unionable/musicians_unionable_mapping.json",
-    "metadata": "Musicians_unionable/metadata_Musicians_unionable.json"
-}
