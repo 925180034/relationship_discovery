@@ -1,0 +1,90 @@
+[
+	{
+		"tableName": "musicians_joinable_source",
+		"columns": [
+			{"name": "musician", 
+			"attribute_desc": "The name or identifier of the musician."
+			},
+			{"name": "birthDate", 
+			"attribute_desc": "The birth date of the individual."
+			},
+			{"name": "familyNameLabel",
+			"attribute_desc": "The family or last name of the person."
+			},
+			{"name": "givenNameLabel",
+			"attribute_desc": "The given or first name of the person."
+			},
+			{"name": "numberOfChildren",
+			"attribute_desc": "The number of children the person has."
+			},
+			{"name": "websiteLabel",
+			"attribute_desc": "The official website or webpage related to the person."
+			},
+			{"name": "residenceLabel",
+			"attribute_desc": "The place where the person resides."
+			},
+			{"name": "ethnicityLabel",
+			"attribute_desc": "The ethnicity or ethnic background of the person."
+			},
+			{"name": "religionLabel",
+			"attribute_desc": "The religious affiliation of the person."
+			},
+			{"name": "activityStart", 
+			"attribute_desc": "The start date or year of the person's professional activity."
+			},
+			{"name": "twitterNameLabel",
+			"attribute_desc": "The Twitter username or handle associated with the person."
+			},
+			{"name": "geniusNameLabel",
+			"attribute_desc": "The Genius.com profile name or identifier for the person."
+			},
+			{"name": "recordLabelLabel",
+			"attribute_desc": "The name of the record label with which the person is associated."
+			}
+		]
+	},
+	{
+		"tableName": "musicians_joinable_target",
+		"columns": [
+			{"name": "musicianID",
+			"attribute_desc": "A unique identifier for the musician."
+			},
+			{"name": "musicianName",
+			"attribute_desc": "The full name of the musician."
+			},
+			{"name": "genderType", 
+			"attribute_desc": "The gender of the musician."
+			},
+			{"name": "birthDate", 
+			"attribute_desc": "The birth date of the individual."
+			},
+			{"name": "city", 
+			"attribute_desc": "The city of origin or residence of the musician."
+			},
+			{"name": "familyName",
+			"attribute_desc": "The family or last name of the musician."
+			},
+			{"name": "forename", 
+			"attribute_desc": "The forename or first name of the musician."
+			},
+			{"name": "fatherName",
+			"attribute_desc": "The name of the musician's father."
+			},
+			{"name": "motherName",
+			"attribute_desc": "The name of the musician's mother."
+			},
+			{"name": "spouse",
+			"attribute_desc": "The name of the musician's spouse."
+			},
+			{"name": "NChildren",
+			"attribute_desc": "The number of children the musician has."
+			},
+			{"name": "kind", 
+			"attribute_desc": "The genre or type of music the musician is associated with."
+			},
+			{"name": "webpage",
+			"attribute_desc": "The official website or webpage of the musician."
+			}
+		]
+	}	
+]

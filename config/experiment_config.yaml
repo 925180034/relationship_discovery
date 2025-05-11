@@ -1,0 +1,149 @@
+# config/experiment_config.yaml
+
+# 实验总体控制
+experiment:
+  name: "schema_matching_comprehensive"
+  scenario: "metadata"
+
+# 启用的实验类型
+enabled_experiments:
+  feature_ablation: true    
+  scenario_comparison: true  
+  model_comparison: false   
+
+# 数据配置
+data:
+  # source_table: "data/Musicians/Musicians_joinable/musicians_joinable_source.csv"
+  # target_table: "data/Musicians/Musicians_joinable/musicians_joinable_target.csv"
+  # ground_truth: "data/Musicians/Musicians_joinable/musicians_joinable_mapping.json"
+  # metadata: "data/Musicians/Musicians_joinable/metadata_Musicians_joinable.json"
+  output_dir: "experiments/results"  # 确保这个路径存在
+  experiment_dir: "data/Musicians/experiments"  # 实验配置文件目录
+
+# 基础特征提取器配置
+feature_extractor:
+  cache_enabled: true
+  semantic_model: "paraphrase-MiniLM-L3-v2"  #all-MiniLM-L6-v2
+
+# 计划生成器全局配置
+plan_generator:
+  type: "base"
+  # 这些是全局默认值，会被场景特定配置覆盖
+  thresholds:
+    name: 0.4
+    semantic: 0.5
+    structural: 0.4
+    combined: 0.4
+  weights:
+    name: 0.4        
+    semantic: 0.3    
+    structural: 0.3
+
+# 场景特定配置
+scenarios:
+  metadata:
+    feature_extractor:
+      text: true            
+      structural: true      
+      semantic: false       
+    thresholds:
+      name: 0.3           # 覆盖全局阈值
+      structural: 0.5   
+      semantic: 0.0   
+      combined: 0.35  
+    weights:
+      name: 0.4      
+      structural: 0.6
+      semantic: 0.0
+    sample_size: 0        
+
+  few_instances:
+    feature_extractor:
+      text: true
+      structural: true
+      semantic: true
+      semantic_model: "paraphrase-MiniLM-L3-v2"
+    thresholds:
+      name: 0.6
+      structural: 0.5 
+      semantic: 0.5
+      combined: 0.55
+    weights:
+      name: 0.3
+      structural: 0.3
+      semantic: 0.4
+    sample_size: 5        
+
+  rich_instances:
+    feature_extractor:
+      text: true
+      structural: true 
+      semantic: true
+      semantic_model: "paraphrase-MiniLM-L3-v2"
+    thresholds:
+      name: 0.5
+      structural: 0.5
+      semantic: 0.5
+      combined: 0.55
+    weights:
+      name: 0.2          
+      structural: 0.35
+      semantic: 0.45
+    sample_size: 100     
+
+# 特征消融实验配置  
+feature_ablation:
+  base_scenario: "metadata"   
+  combinations:               
+    - text: true             
+      structural: false
+      semantic: false
+    - text: false            
+      structural: true
+      semantic: false  
+    - text: false            
+      structural: false
+      semantic: true
+    - text: true             
+      structural: true
+      semantic: false
+    - text: true             
+      structural: false
+      semantic: true
+    - text: false            
+      structural: true
+      semantic: true
+    - text: true             
+      structural: true
+      semantic: true
+
+# 模型配置
+model:
+  type: "ollama"              
+  name: "llama3.1"
+  base_url: "http://localhost:11434"
+  generation_config:
+    temperature: 0.35         
+    top_p: 0.9
+    top_k: 10 
+    max_tokens: 2048
+    presence_penalty: 0.0
+    frequency_penalty: 1.1
+    repeat_penalty: 1.1
+
+# 评估指标
+metrics:
+  - precision
+  - recall
+  - f1_score
+  - type_compatibility
+  - value_similarity
+  - source_coverage
+  - target_coverage
+  - one_to_one_ratio
+
+# 日志配置
+logging:
+  level: "INFO"
+  file: "logs/experiment.log"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

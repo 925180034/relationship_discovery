@@ -1,0 +1,7 @@
+{
+    "name": "Musicians_viewunion",
+    "source": "Musicians_viewunion/musicians_viewunion_source.csv",
+    "target": "Musicians_viewunion/musicians_viewunion_target.csv",
+    "mapping": "Musicians_viewunion/musicians_viewunion_mapping.json",
+    "metadata": "Musicians_viewunion/metadata_Musicians_viewunion.json"
+}

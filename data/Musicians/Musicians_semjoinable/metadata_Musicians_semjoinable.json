@@ -1,0 +1,126 @@
+[
+    {
+        "tableName": "musicians_semjoinable_source",
+        "columns": [
+            {
+                "name": "musician",
+                "attribute_desc": "The Wikidata URL identifier of the musician."
+            },
+            {
+                "name": "musicianLabel",
+                "attribute_desc": "The full name of the musician."
+            },
+            {
+                "name": "genderLabel",
+                "attribute_desc": "The gender of the musician."
+            },
+            {
+                "name": "cityLabel",
+                "attribute_desc": "The birth city of the musician."
+            },
+            {
+                "name": "fatherLabel",
+                "attribute_desc": "The name of the musician's father."
+            },
+            {
+                "name": "motherLabel",
+                "attribute_desc": "The name of the musician's mother."
+            },
+            {
+                "name": "partner",
+                "attribute_desc": "The name of the musician's partner."
+            },
+            {
+                "name": "genreLabel",
+                "attribute_desc": "The musical genre the musician is associated with."
+            },
+            {
+                "name": "ethnicityLabel",
+                "attribute_desc": "The ethnic background of the musician."
+            },
+            {
+                "name": "religionLabel",
+                "attribute_desc": "The religious affiliation of the musician."
+            },
+            {
+                "name": "activityStart",
+                "attribute_desc": "The start year of the musician's professional activity."
+            },
+            {
+                "name": "twitterNameLabel",
+                "attribute_desc": "The Twitter username associated with the musician."
+            },
+            {
+                "name": "geniusNameLabel",
+                "attribute_desc": "The Genius.com profile name of the musician."
+            },
+            {
+                "name": "recordLabelLabel",
+                "attribute_desc": "The record label with which the musician is associated."
+            }
+        ]
+    },
+    {
+        "tableName": "musicians_semjoinable_target",
+        "columns": [
+            {
+                "name": "musicianID",
+                "attribute_desc": "The unique Wikidata URL identifier of the musician."
+            },
+            {
+                "name": "musicianName",
+                "attribute_desc": "The stage name or commonly known name of the musician."
+            },
+            {
+                "name": "genderType",
+                "attribute_desc": "The gender of the musician, typically 'm' for male, 'f' for female."
+            },
+            {
+                "name": "birthDate",
+                "attribute_desc": "The birth date of the musician."
+            },
+            {
+                "name": "city",
+                "attribute_desc": "The city where the musician was born or associated with."
+            },
+            {
+                "name": "familyName",
+                "attribute_desc": "The family or last name of the musician."
+            },
+            {
+                "name": "forename",
+                "attribute_desc": "The first or given name of the musician."
+            },
+            {
+                "name": "fatherName",
+                "attribute_desc": "The name of the musician's father."
+            },
+            {
+                "name": "motherName",
+                "attribute_desc": "The name of the musician's mother."
+            },
+            {
+                "name": "spouse",
+                "attribute_desc": "The name of the musician's spouse."
+            },
+            {
+                "name": "NChildren",
+                "attribute_desc": "The number of children the musician has."
+            },
+            {
+                "name": "kind",
+                "attribute_desc": "The type or genre of music the musician is known for."
+            },
+            {
+                "name": "webpage",
+                "attribute_desc": "The official webpage or website associated with the musician."
+            },
+            {
+                "name": "residence",
+                "attribute_desc": "The place where the musician currently resides or is most associated with."
+            }
+        ]
+    }
+]
+
+

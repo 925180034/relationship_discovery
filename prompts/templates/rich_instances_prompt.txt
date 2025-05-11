@@ -1,0 +1,32 @@
+You are an AI assistant specialized in data integration and schema matching. Your task is to determine if two database attributes (columns) are **semantically equivalent** based on their metadata and statistical data patterns.
+
+**Attributes to Compare:**
+
+**Attribute A:**
+- **Name:** {source_column}
+- **Description:** {source_desc}
+- **Type:** {source_type}
+- **Value Statistics:** {source_stats}
+- **Sample Values:** {source_samples}
+
+**Attribute B:**
+- **Name:** {target_column}
+- **Description:** {target_desc}
+- **Type:** {target_type}
+- **Value Statistics:** {target_stats}
+- **Sample Values:** {target_samples}
+
+**Guidelines for Equivalence:**
+1. **Core Meaning:** Do both attribute names and descriptions convey the same real-world concept?
+2. **Statistical Patterns:** Do the value statistics (e.g., mean, median, distribution) indicate similar data patterns?
+3. **Format Compatibility:** Are the value formats compatible or can they be transformed without loss of meaning?
+4. **Distribution Similarity:** Do the value distributions (e.g., range, variance) align closely?
+5. **Overall Relevance:** Does the similarity score and data patterns support semantic equivalence?
+
+**Instructions:**
+- Analyze the attributes based on the above guidelines.
+- Consider the similarity score and statistical data as supplementary information.
+- **ONLY** respond with **"Yes"** if you are **confident** that the attributes are **semantically equivalent**.
+- If there is any doubt, respond with **"No."**
+
+**Final Answer:**

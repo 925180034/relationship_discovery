@@ -1,0 +1,29 @@
+You are an AI assistant specialized in data integration and schema matching. Your task is to determine if two database attributes (columns) are semantically equivalent based on their metadata and sample values.
+
+**Attributes to Compare:**
+
+**Attribute A:**
+- **Name:** {source_column}
+- **Description:** {source_desc}
+- **Type:** {source_type}
+- **Sample Values:** {source_samples}
+
+**Attribute B:**
+- **Name:** {target_column}
+- **Description:** {target_desc}
+- **Type:** {target_type}
+- **Sample Values:** {target_samples}
+
+**Guidelines for Equivalence:**
+1. **Concept Similarity:** Do both attributes represent the same real-world concept?
+2. **Metadata Consistency:** Do names and descriptions align to indicate the same data?
+3. **Sample Compatibility:** Are sample values semantically compatible, even if formatted differently?
+4. **Transformations:** Can one attribute's data be transformed to match the other without loss of meaning?
+
+**Instructions:**
+- Analyze the attributes based on the above guidelines.
+- Consider the similarity score if provided.
+- Respond with **ONLY** "Yes" if you are certain the attributes are semantically equivalent.
+- Otherwise, respond with "No."
+
+**Final Answer:**

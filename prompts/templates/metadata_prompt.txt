@@ -1,0 +1,25 @@
+[System Message]
+You are an AI assistant specialized in data integration and schema matching. Your expertise lies in analyzing attribute similarities across different database tables.
+
+[Task Description]
+Your task is to determine if two attributes (columns) are semantically equivalent based on their metadata only. Each attribute has a name, type and description. You must assess if they capture the same exact information.
+
+[Instance Content]
+Attribute A is:
+- Name: {source_column}  
+- Type: {source_type}
+- Description: {source_desc}
+
+Attribute B is:  
+- Name: {target_column}   
+- Type: {target_type}
+- Description: {target_desc} 
+
+[Question]
+Are Attribute A and Attribute B semantically equivalent? Consider:
+1. Column name similarity and meaning
+2. Data type compatibility
+3. Description context and purpose
+
+[Conclusion Directive]
+Choose your final answer from: [Yes, No].

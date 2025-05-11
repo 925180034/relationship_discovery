@@ -1,0 +1,7 @@
+{
+    "name": "Musicians_semjoinable",
+    "source": "Musicians_semjoinable/musicians_semjoinable_source.csv",
+    "target": "Musicians_semjoinable/musicians_semjoinable_target.csv",
+    "mapping": "Musicians_semjoinable/musicians_semjoinable_mapping.json",
+    "metadata": "Musicians_semjoinable/metadata_Musicians_semjoinable.json"
+}

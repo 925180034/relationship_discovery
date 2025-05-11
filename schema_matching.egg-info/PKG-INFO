@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: schema-matching
+Version: 0.1
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: torch
+Requires-Dist: transformers
+Requires-Dist: sentence-transformers
+Requires-Dist: pytest
+Requires-Dist: scikit-learn
+Requires-Dist: scipy

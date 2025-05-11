@@ -1,0 +1,121 @@
+# default_config.yaml
+
+# 实验基础配置
+experiment:
+  scenario: "metadata"  
+  name: "schema_matching_experiment"
+
+# 数据配置
+data:
+  source_table: "data/raw/source.csv" 
+  target_table: "data/raw/target.csv"
+  ground_truth: "data/raw/mapping.json"
+  output_dir: "data/results"
+  experiment_dir: "data/Musicians/experiments"
+
+# 全局默认配置
+feature_extractor:
+  text: true
+  structural: true
+  semantic: false
+  cache_enabled: true
+  semantic_model: "paraphrase-MiniLM-L3-v2" # paraphrase-MiniLM-L3-v2 all-MiniLM-L6-v2
+
+plan_generator:
+  thresholds:
+    name: 0.3
+    structural: 0.3
+    semantic: 0.3
+    combined: 0.2
+  weights:
+    name: 0.4
+    structural: 0.3
+    semantic: 0.3
+
+# 场景特定配置
+scenarios:
+  metadata:
+    feature_extractor:
+      text: true           
+      structural: true      
+      semantic: false       
+    thresholds:
+      name: 0.35   
+      structural: 0.7
+      semantic: 0    
+      combined: 0.4  
+    weights:
+      name: 0.7           # 增加名称权重的重要性
+      structural: 0.3     # 降低结构权重
+      semantic: 0.0
+
+  few_instances:
+    feature_extractor:
+      text: true
+      structural: true  
+      semantic: true
+      semantic_model: "paraphrase-MiniLM-L3-v2"
+    thresholds:
+      name: 0.3           # 提高,但不如metadata严格
+      semantic: 0.4       # 提高,因为有样本数据支持
+      structural: 0.4     # 提高
+      combined: 0.35      # 提高总体要求
+    weights:
+      name: 0.3          # 平衡三个特征
+      semantic: 0.4      # 稍微提高语义权重
+      structural: 0.3
+    sample_size: 5         
+
+  rich_instances:
+    feature_extractor:
+      text: true
+      structural: true
+      semantic: true
+      semantic_model: "paraphrase-MiniLM-L3-v2"
+    thresholds:
+      name: 0.25         # 提高,但可以较为宽松
+      semantic: 0.45     # 显著提高,因为有大量数据支持
+      structural: 0.35   # 适度提高
+      combined: 0.4      # 提高整体要求
+    weights:
+      name: 0.2         # 保持较低,因为有更可靠的特征
+      semantic: 0.5     # 保持高权重,利用丰富数据
+      structural: 0.3   # 保持中等权重
+    sample_size: 50     # 保持不变      
+    
+model:
+  type: "ollama"
+  name: "llama3.1"
+  base_url: "http://localhost:11434"
+  generation_config:
+    temperature: 0.35     
+    top_p: 0.9          
+    top_k: 10           
+    max_tokens: 2048
+    presence_penalty: 0.0
+    frequency_penalty: 0.0
+    repeat_penalty: 1.1
+
+prompts:
+  template_dir: "prompts/templates"
+  scenarios:
+    metadata:
+      template: "metadata_prompt.txt"
+      similarity_threshold: 0.5    
+      weights:
+        name: 0.4                 
+        structural: 0.3
+        semantic: 0.3
+    few_instances:
+      template: "few_instances_prompt.txt"
+      similarity_threshold: 0.4    
+      sample_size: 5
+    rich_instances:
+      template: "rich_instances_prompt.txt"
+      similarity_threshold: 0.3    
+      sample_size: 50
+
+logging:
+  level: "INFO"
+  file: "logs/experiment.log"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
